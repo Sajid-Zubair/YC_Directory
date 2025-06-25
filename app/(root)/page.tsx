@@ -20,6 +20,7 @@ export default async function Home({ searchParams}: {
       title:"We Robots"
     }
   ]
+  
   return (
     <>
       <section className="pink_container">
