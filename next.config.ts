@@ -1,5 +1,5 @@
 import type { NextConfig } from "next";
-
+import after from "@/components/View"
 const nextConfig: NextConfig = {
   /* config options here */
   images: {
@@ -15,6 +15,7 @@ const nextConfig: NextConfig = {
       },
     ]
   },
+
 
   devIndicators: {
     appIsrStatus: true,
