@@ -514,6 +514,8 @@
 
 .startup-form_input {
   border-width: 3px;
+  width: 100%;
+  box-sizing: border-box;
   border-color: black;
   padding-left: 1.25rem;
   padding-right: 1.25rem;
@@ -533,8 +535,10 @@
 
 .startup-form_textarea {
   border-width: 3px;
+  width: 100%;
+  box-sizing: border-box;
   border-color: black;
-  padding: 1.25rem;
+  padding: 1.5rem;
   font-size: 18px;
   color: black;
   font-weight: 600;
