@@ -10,9 +10,14 @@ const Navbar = async () => {
   return (
     <header className="px-5 py-3 bg-white shadow-sm font-work-sans">
       <nav className="flex justify-between items-center">
-        <Link href="/">
-          <Image src="/logo.png" alt="logo" width={144} height={30} />
-        </Link>
+        {/* <Image src="/logo.png" alt="logo" width={144} height={30} /> */}
+      <Link
+        href="/"
+        className="flex items-center gap-2 text-4xl font-extrabold bg-gradient-to-r from-pink-600 to-red-500 bg-clip-text text-transparent tracking-tight"
+      >
+        <span>PitchDeck</span>
+      </Link>
+
 
         <div className="flex items-center gap-5 text-black">
           {session && session?.user ? (
