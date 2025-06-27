@@ -8,24 +8,30 @@ import Link from 'next/link'
 import markdownit from 'markdown-it'
 import { Skeleton } from '@/components/ui/skeleton'
 import { AlignVerticalDistributeCenter } from 'lucide-react'
-export const experimental_ppr = true
 import View from '@/components/View'
 import { StartupCardType } from '@/components/StartupCard'
 import StartupCard from '@/components/StartupCard'
+
+
+
 const md = markdownit()
+export const experimental_ppr = true
 const page = async ({ params } : {params : Promise<{ id: string} >}) => {
   const id = (await params).id
 
   /* This is parallel fetching where two concurrent requests are made reducing the load time. */
-  const [post, {select : editorPosts}] = await Promise.all([
+    const [post, playlistData] = await Promise.all([
     client.fetch(STARTUP_BY_ID_QUERY, { id }),
-    client.fetch(PLAYLIST_BY_SLUG_QUERY, {slug: 'editor-picks'})
-  ])
+    client.fetch(PLAYLIST_BY_SLUG_QUERY, { slug: 'editor-picks' }),
+    ]);
+
+    const editorPosts = playlistData?.select ?? [];
+
 
   if(!post) return notFound()
 
   const parsedContent = md.render(post?.pitch || '')
-
+    
   return (
     <>
 
